@@ -1,9 +1,9 @@
 # Mars rover problem
 
-plateau_size_x = 5
-plateau_size_y = 5
+#plateau_size_x = 5
+#plateau_size_y = 5
 #  
-rovers = [[[1,2,'N'], "LMLMLMLMM"], [[3,3,'E'], "MMRMMRMRRM"]]
+#rovers = [[[1,2,'N'], "LMLMLMLMM"], [[3,3,'E'], "MMRMMRMRRM"]]
 
 
 def setup_rover_data(rover)
@@ -52,6 +52,21 @@ def make_movement(loc, movement)
   else
     return move(loc)
   end
+end
+
+plateau_size = gets.chomp
+size = plateau_size.split.collect{ |x| x.to_i }
+plateau_size_x = size[0]
+plateau_size_y = size[1]
+rovers = []
+i = 0
+while (input = gets) != "\n"
+  input = input.chomp
+  d = input.split
+  rovers[i] = []
+  rovers[i][0] = [d[0].to_i, d[1].to_i, d[2]]
+  rovers[i][1] = gets.chomp
+  i += 1
 end
 
 rovers.each do |rover|
